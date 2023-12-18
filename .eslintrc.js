@@ -18,7 +18,42 @@ module.exports = {
 		extraFileExtensions: ['.json'],
 	},
 
-	ignorePatterns: ['.eslintrc.js', '**/*.js', '**/node_modules/**', '**/dist/**'],
+	ignorePatterns: ['**/node_modules/**', '**/dist/**'],
+
+	extends: [
+		'plugin:@typescript-eslint/recommended',
+		'plugin:import/errors',
+		'plugin:import/warnings',
+		'plugin:import/typescript',
+		'plugin:prettier/recommended',
+	],
+
+	rules: {
+		'prettier/prettier': 'error',
+		'@typescript-eslint/no-explicit-any': 'off',
+		'@typescript-eslint/no-unused-vars': [
+			'error',
+			{ ignoreRestSiblings: true, argsIgnorePattern: '^_' },
+		],
+		semi: ['error', 'always'],
+		'eol-last': ['error', 'always'],
+		'import/order': [
+			'error',
+			{
+				'newlines-between': 'always',
+				alphabetize: {
+					order: 'asc',
+				},
+			},
+		],
+		'import/no-unresolved': 'off',
+	},
+
+	settings: {
+		'import/resolver': {
+			typescript: {},
+		},
+	},
 
 	overrides: [
 		{

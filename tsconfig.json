@@ -8,6 +8,7 @@
 		"removeComments": true,
 		"useUnknownInCatchVariables": false,
 		"forceConsistentCasingInFileNames": true,
+		"allowJs": true,
 		"noImplicitAny": true,
 		"noImplicitReturns": true,
 		"noUnusedLocals": true,
@@ -22,9 +23,12 @@
 		"outDir": "./dist/",
 	},
 	"include": [
-		"credentials/**/*",
-		"nodes/**/*",
-		"nodes/**/*.json",
-		"package.json",
+		"src/**/*",
+		"scripts/**/*",
+		".*.js",
+		"gulpfile.ts",
 	],
+	"ts-node": {
+		"swc": true
+	}
 }
